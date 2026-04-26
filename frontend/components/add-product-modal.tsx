@@ -61,7 +61,7 @@ export function AddProductModal({ isOpen, onClose, onSuccess, categories, editPr
       } else {
         // POST - Create new product
         // const response = await axios.post('http://localhost:8080/products', payload)
-        const response = await api.put('/products', payload)
+        const response = await api.post('/products', payload)
         onSuccess(response.data)
       }
 
