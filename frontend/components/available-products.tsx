@@ -100,7 +100,7 @@ export function AvailableProducts() {
   const handleDeleteProduct = async (product: Product) => {
     try {
       // await axios.delete(`http://localhost:8080/products/${product.id}`)
-      await api.delete('/products/${product.id}')
+      await api.delete(`/products/${product.id}`)
       setProducts((prevProducts) => prevProducts.filter((p) => p.id !== product.id))
     } catch (error) {
       console.error('Failed to delete product:', error)
