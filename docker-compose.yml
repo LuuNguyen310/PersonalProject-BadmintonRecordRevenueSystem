@@ -29,9 +29,10 @@ services:
   # Spring Boot Backend
   # ============================
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: ${DOCKER_USERNAME}/badminton-backend:latest    # ← DÙng image từ Docker Hub
+    # build:
+    #   context: ./backend
+    #   dockerfile: Dockerfile
     container_name: badminton-backend
     restart: unless-stopped
     depends_on:
@@ -51,11 +52,12 @@ services:
   # Next.js Frontend
   # ============================
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-      args:
-        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-/api}
+    image: ${DOCKER_USERNAME}/badminton-frontend:latest   # ← Dùng image từ Docker Hub
+    # build:
+    #   context: ./frontend
+    #   dockerfile: Dockerfile
+    #   args:
+    #     NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-/api}
     container_name: badminton-frontend
     restart: unless-stopped
     depends_on:
